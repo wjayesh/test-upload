@@ -1,0 +1,22 @@
+name: Receive dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag of the ZenML release to build the server image for'
+        required: true
+        type: string
+
+jobs:
+  build_server_image:
+    name: Build Server Image
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: "read"
+      id-token: "write"
+
+    steps:
+      - name: Checkout working branch
+        uses: actions/checkout@v4
