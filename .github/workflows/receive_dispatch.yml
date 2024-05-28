@@ -7,6 +7,10 @@ on:
         description: 'Tag of the ZenML release to build the server image for'
         required: true
         type: string
+  # also run on tag pushes
+  push:
+    tags:
+      - '*'
 
 jobs:
   build_server_image:
